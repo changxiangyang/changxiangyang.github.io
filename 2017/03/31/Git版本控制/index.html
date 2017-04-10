@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="test," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -87,19 +87,36 @@
 
 
 
-<meta name="description" content="充实的一天​    从中午开始搭建我的博客（github+hexo）一直到现在，没想到自己还能这么认真的折腾一次，记得上次折腾是在大二时候，自己做点阵屏的时候。
-12345678910111213141516171819public class Demo&amp;#123;  private String name;  private int sex;  private int age;    publi">
+<meta name="description" content="这篇文章是针对git版本控制和工作流的总结，如果有些朋友之前还没使用过git，对git的基本概念和命令不是很熟悉，可以从以下基本教程入手：
+
+专为设计师而写的GitHub快速入门教程
+git - 简明指南
+学习Git的在线互动教程
+
+基本概念Git是什么？Git是分布式版本控制系统，与SVN类似的集中化版本控制系统相比，集中化版本控制系统虽然能够令多个团队成员一起协作开发，但有时如果中央服务器宕机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的练习01">
-<meta property="og:url" content="http://changxiangyang.github.io/2017/02/11/我的练习01/index.html">
+<meta property="og:title" content="Git版本控制">
+<meta property="og:url" content="http://changxiangyang.github.io/2017/03/31/Git版本控制/index.html">
 <meta property="og:site_name" content="凛冬将至">
-<meta property="og:description" content="充实的一天​    从中午开始搭建我的博客（github+hexo）一直到现在，没想到自己还能这么认真的折腾一次，记得上次折腾是在大二时候，自己做点阵屏的时候。
-12345678910111213141516171819public class Demo&amp;#123;  private String name;  private int sex;  private int age;    publi">
-<meta property="og:updated_time" content="2017-04-10T14:32:42.265Z">
+<meta property="og:description" content="这篇文章是针对git版本控制和工作流的总结，如果有些朋友之前还没使用过git，对git的基本概念和命令不是很熟悉，可以从以下基本教程入手：
+
+专为设计师而写的GitHub快速入门教程
+git - 简明指南
+学习Git的在线互动教程
+
+基本概念Git是什么？Git是分布式版本控制系统，与SVN类似的集中化版本控制系统相比，集中化版本控制系统虽然能够令多个团队成员一起协作开发，但有时如果中央服务器宕机">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/166109-2e8b31d4cef104ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-31T06:52:31.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的练习01">
-<meta name="twitter:description" content="充实的一天​    从中午开始搭建我的博客（github+hexo）一直到现在，没想到自己还能这么认真的折腾一次，记得上次折腾是在大二时候，自己做点阵屏的时候。
-12345678910111213141516171819public class Demo&amp;#123;  private String name;  private int sex;  private int age;    publi">
+<meta name="twitter:title" content="Git版本控制">
+<meta name="twitter:description" content="这篇文章是针对git版本控制和工作流的总结，如果有些朋友之前还没使用过git，对git的基本概念和命令不是很熟悉，可以从以下基本教程入手：
+
+专为设计师而写的GitHub快速入门教程
+git - 简明指南
+学习Git的在线互动教程
+
+基本概念Git是什么？Git是分布式版本控制系统，与SVN类似的集中化版本控制系统相比，集中化版本控制系统虽然能够令多个团队成员一起协作开发，但有时如果中央服务器宕机">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/166109-2e8b31d4cef104ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -127,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://changxiangyang.github.io/2017/02/11/我的练习01/"/>
+  <link rel="canonical" href="http://changxiangyang.github.io/2017/03/31/Git版本控制/"/>
 
 
 
 
 
-  <title> 我的练习01 | 凛冬将至 </title>
+  <title> Git版本控制 | 凛冬将至 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +297,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://changxiangyang.github.io/2017/02/11/我的练习01/">
+  <link itemprop="mainEntityOfPage" href="http://changxiangyang.github.io/2017/03/31/Git版本控制/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="changxy">
@@ -304,7 +321,7 @@
             
             
               
-                我的练习01
+                Git版本控制
               
             
           </h1>
@@ -319,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T20:35:49+08:00">
-                2017-02-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T11:30:24+08:00">
+                2017-03-31
               </time>
             
 
@@ -342,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/test/" itemprop="url" rel="index">
-                    <span itemprop="name">test</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -360,8 +377,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/11/我的练习01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/11/我的练习01/" itemprop="commentCount"></span>
+                <a href="/2017/03/31/Git版本控制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/31/Git版本控制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,7 +386,7 @@
 
           
           
-             <span id="/2017/02/11/我的练习01/" class="leancloud_visitors" data-flag-title="我的练习01">
+             <span id="/2017/03/31/Git版本控制/" class="leancloud_visitors" data-flag-title="Git版本控制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -398,9 +415,101 @@
       
 
       
-        <h2 id="充实的一天"><a href="#充实的一天" class="headerlink" title="充实的一天"></a>充实的一天</h2><p>​    从中午开始搭建我的博客（github+hexo）一直到现在，没想到自己还能这么认真的折腾一次，记得上次折腾是在大二时候，自己做点阵屏的时候。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> sex;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">    Demo d = <span class="keyword">new</span> Demo();</div><div class="line">    d.setName(<span class="string">"cxy"</span>);</div><div class="line">    System.out.println(<span class="string">"hello "</span> + d.getName());</div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<embed src="//music.163.com/style/swf/widget.swf?sid=189072&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">
+        <p>这篇文章是针对git版本控制和工作流的<strong>总结</strong>，如果有些朋友之前还没使用过git，对git的基本概念和命令不是很熟悉，可以从以下基本教程入手：</p>
+<ul>
+<li><a href="http://www.ui.cn/detail/20957.html" target="_blank" rel="external">专为设计师而写的GitHub快速入门教程</a></li>
+<li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git - 简明指南</a></li>
+<li><a href="http://pcottle.github.io/learnGitBranching/" target="_blank" rel="external">学习Git的在线互动教程</a></li>
+</ul>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h3 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h3><p><a href="https://git-scm.com/" target="_blank" rel="external">Git</a>是<strong>分布式</strong>版本控制系统，与SVN类似的<strong>集中化</strong>版本控制系统相比，集中化版本控制系统虽然能够令多个团队成员一起协作开发，但有时如果中央服务器宕机的话，谁也无法在宕机期间提交更新和协同开发。甚至有时，中央服务器磁盘故障，恰巧又没有做备份或备份没及时，那就可能有丢失数据的风险。</p>
+<p>但Git是分布式的版本控制系统，客户端不只是提取最新版本的快照，而且将整个代码仓库镜像复制下来。如果任何协同工作用的服务器发生故障了，也可以用任何一个代码仓库来恢复。而且在协作服务器宕机期间，你也可以提交代码到本地仓库，当协作服务器正常工作后，你再将本地仓库同步到远程仓库。</p>
+<h3 id="为什么要使用Git"><a href="#为什么要使用Git" class="headerlink" title="为什么要使用Git"></a>为什么要使用Git</h3><ul>
+<li>能够对文件<strong>版本控制</strong>和<strong>多人协作开发</strong></li>
+<li>拥有强大的<strong>分支特性</strong>，所以能够灵活地以<strong>不同的工作流</strong>协同开发</li>
+<li><strong>分布式版本控制系统</strong>，即使协作服务器宕机，也能继续提交代码或文件到本地仓库，当协作服务器恢复正常工作时，再将本地仓库同步到远程仓库。</li>
+<li>当团队中某个成员完成某个功能时，通过<strong>pull request</strong>操作来通知其他团队成员，其他团队成员能够review code后再合并代码。</li>
+</ul>
+<h3 id="Git有哪些特性"><a href="#Git有哪些特性" class="headerlink" title="Git有哪些特性"></a>Git有哪些特性</h3><ul>
+<li>文件三种状态(modified, staged, committed)</li>
+<li>直接记录快照，而非差异比较</li>
+<li>多数操作仅添加操作</li>
+<li>近乎所有操作都是本地执行</li>
+<li>时刻保持数据完整性</li>
+</ul>
+<p>有关以上特性的详细解释，请查看Pro git的<a href="http://iissnan.com/progit/html/zh/ch1_3.html" target="_blank" rel="external">git基础章节</a></p>
+<h3 id="Git基本工作流程"><a href="#Git基本工作流程" class="headerlink" title="Git基本工作流程"></a>Git基本工作流程</h3><ol>
+<li>在git版本控制的目录下修改某个文件</li>
+<li>使用<code>git add</code>命令对修改后的文件快照，保存到暂存区域</li>
+<li>使用<code>git commit</code>命令提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中</li>
+</ol>
+<h3 id="Git基本技巧"><a href="#Git基本技巧" class="headerlink" title="Git基本技巧"></a>Git基本技巧</h3><ul>
+<li>自动补全</li>
+<li>Git 命令别名</li>
+</ul>
+<p>关于具体如何使用自动补全和命名别名技巧，请查看Pro git的<a href="http://iissnan.com/progit/html/zh/ch2_7.html" target="_blank" rel="external">技巧和窍门</a></p>
+<h1 id="Git版本控制"><a href="#Git版本控制" class="headerlink" title="Git版本控制"></a>Git版本控制</h1><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><ul>
+<li>git init</li>
+<li>git clone</li>
+<li>git config</li>
+</ul>
+<h3 id="保存修改"><a href="#保存修改" class="headerlink" title="保存修改"></a>保存修改</h3><ul>
+<li>git add</li>
+<li>git commit</li>
+</ul>
+<h3 id="查看仓库"><a href="#查看仓库" class="headerlink" title="查看仓库"></a>查看仓库</h3><ul>
+<li>git status</li>
+<li>git log –oneline</li>
+</ul>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><h5 id="查看之前的commit"><a href="#查看之前的commit" class="headerlink" title="查看之前的commit"></a>查看之前的commit</h5><ul>
+<li>git checkout <commit> <file></file></commit></li>
+<li>git checkout <commit></commit></li>
+<li>git checkout <branch></branch></li>
+</ul>
+<h5 id="撤销公共修改"><a href="#撤销公共修改" class="headerlink" title="撤销公共修改"></a>撤销公共修改</h5><ul>
+<li>git revert <commit></commit></li>
+</ul>
+<h5 id="撤销本地修改"><a href="#撤销本地修改" class="headerlink" title="撤销本地修改"></a>撤销本地修改</h5><ul>
+<li>git reset</li>
+<li>git clean</li>
+</ul>
+<h3 id="重写Git历史记录"><a href="#重写Git历史记录" class="headerlink" title="重写Git历史记录"></a>重写Git历史记录</h3><ul>
+<li>git commit –amend</li>
+<li>git rebase</li>
+<li>git reflog</li>
+</ul>
+<h1 id="Git协作开发"><a href="#Git协作开发" class="headerlink" title="Git协作开发"></a>Git协作开发</h1><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><ul>
+<li>git branch</li>
+<li>git checkout</li>
+<li>git merge</li>
+</ul>
+<h3 id="仓库同步"><a href="#仓库同步" class="headerlink" title="仓库同步"></a>仓库同步</h3><ul>
+<li>git remote</li>
+<li>git fetch</li>
+<li>git pull</li>
+<li>git push</li>
+</ul>
+<h1 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h1><p>由于git拥有强大的<strong>分支特性</strong>，它的工作流比较灵活而缺乏约束，于是参考<a href="https://www.atlassian.com/git/tutorials" target="_blank" rel="external">Atlassian Git Tutorial</a>的<a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank" rel="external">Comparing Workflows</a>章节提供<strong>四种Git工作流</strong>：</p>
+<ul>
+<li>Centralized Workflow</li>
+<li>Feature Branch Workflow</li>
+<li>Gitflow Workflow</li>
+<li>Forking Workflow</li>
+</ul>
+<p>以上工作流只是<strong>参考指南</strong>，而不是具体规则。你可以根据自己实际情况来选择适合自己的工作流或微调来满足自己的需要。</p>
+<h2 id="Centralized-Workflow"><a href="#Centralized-Workflow" class="headerlink" title="Centralized Workflow"></a>Centralized Workflow</h2><p>过渡到分布式版本控制系统看起来像一个艰巨的任务，但如果你充分利用好git的话，你不必改变你既有的工作流，你的团队可以采用与之前使用SVN一样的方式来开发项目。</p>
+<h4 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a>如何工作</h4><p><img src="http://upload-images.jianshu.io/upload_images/166109-2e8b31d4cef104ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" Centralized Workflow"></p>
+<p>​                                Centralized Workflow</p>
+<ol>
+<li><p>从远程仓库(central repository)克隆工程到本地仓库(local repository) — <code>git clone</code></p>
+</li>
+<li><p>在本地仓库编辑文件和提交更新 — <code>git add</code>和<code>git commit</code></p>
+</li>
+<li><p>fetch远程仓库已更新的commit到本地仓库和rebase到已更新的commit的上面 — <code>git fetch</code>和<code>git rebase</code> 或 <code>git pull --rebase</code></p>
+</li>
+<li><p>push本地主分支(master branch)到远程仓库 — <code>git push</code></p>
+</li>
+</ol>
+<h4 id="管理冲突"><a href="#管理冲突" class="headerlink" title="管理冲突"></a>管理冲突</h4>
       
     </div>
 
@@ -423,7 +532,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/test/" rel="tag"># test</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -436,8 +545,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/11/我的第一篇博客/" rel="next" title="我的第一篇博客">
-                <i class="fa fa-chevron-left"></i> 我的第一篇博客
+              <a href="/2017/03/16/serialVersionUID/" rel="next" title="理解serialVersionUID">
+                <i class="fa fa-chevron-left"></i> 理解serialVersionUID
               </a>
             
           </div>
@@ -445,10 +554,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/15/Maven依赖机制/" rel="prev" title="Maven依赖机制">
-                Maven依赖机制 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -497,8 +602,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/11/我的练习01/"
-           data-title="我的练习01" data-url="http://changxiangyang.github.io/2017/02/11/我的练习01/">
+      <div class="ds-thread" data-thread-key="2017/03/31/Git版本控制/"
+           data-title="Git版本控制" data-url="http://changxiangyang.github.io/2017/03/31/Git版本控制/">
       </div>
     
   </div>
@@ -609,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#充实的一天"><span class="nav-number">1.</span> <span class="nav-text">充实的一天</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git是什么？"><span class="nav-number">1.0.1.</span> <span class="nav-text">Git是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用Git"><span class="nav-number">1.0.2.</span> <span class="nav-text">为什么要使用Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git有哪些特性"><span class="nav-number">1.0.3.</span> <span class="nav-text">Git有哪些特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git基本工作流程"><span class="nav-number">1.0.4.</span> <span class="nav-text">Git基本工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git基本技巧"><span class="nav-number">1.0.5.</span> <span class="nav-text">Git基本技巧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git版本控制"><span class="nav-number">2.</span> <span class="nav-text">Git版本控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建仓库"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存修改"><span class="nav-number">2.0.2.</span> <span class="nav-text">保存修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看仓库"><span class="nav-number">2.0.3.</span> <span class="nav-text">查看仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">2.0.4.</span> <span class="nav-text">撤销修改</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查看之前的commit"><span class="nav-number">2.0.4.0.1.</span> <span class="nav-text">查看之前的commit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#撤销公共修改"><span class="nav-number">2.0.4.0.2.</span> <span class="nav-text">撤销公共修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#撤销本地修改"><span class="nav-number">2.0.4.0.3.</span> <span class="nav-text">撤销本地修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重写Git历史记录"><span class="nav-number">2.0.5.</span> <span class="nav-text">重写Git历史记录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git协作开发"><span class="nav-number">3.</span> <span class="nav-text">Git协作开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-number">3.0.1.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库同步"><span class="nav-number">3.0.2.</span> <span class="nav-text">仓库同步</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git工作流"><span class="nav-number">4.</span> <span class="nav-text">Git工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Centralized-Workflow"><span class="nav-number">4.1.</span> <span class="nav-text">Centralized Workflow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何工作"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">如何工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理冲突"><span class="nav-number">4.1.0.2.</span> <span class="nav-text">管理冲突</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
