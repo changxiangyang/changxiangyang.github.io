@@ -93,12 +93,12 @@
 <meta property="og:url" content="http://changxiangyang.github.io/2017/03/16/serialVersionUID/index.html">
 <meta property="og:site_name" content="凛冬将至">
 <meta property="og:description" content="2实现java.io.Serializable这个接口是为了序列化,serialVersionUID 用来表明实现序列化类的不同版本间的兼容性。如果你修改了此类, 要修改此值。否则以前用老版本的类序列化的类恢复时会出错。">
-<meta property="og:image" content="http://changxiangyang.github.io/2017/03/16/serialVersionUID/03/16/serialVersionUID/a.png">
-<meta property="og:updated_time" content="2018-05-02T02:34:17.072Z">
+<meta property="og:image" content="http://changxiangyang.github.io/2017/03/16/serialVersionUID/">
+<meta property="og:updated_time" content="2018-09-28T09:32:28.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解serialVersionUID">
 <meta name="twitter:description" content="2实现java.io.Serializable这个接口是为了序列化,serialVersionUID 用来表明实现序列化类的不同版本间的兼容性。如果你修改了此类, 要修改此值。否则以前用老版本的类序列化的类恢复时会出错。">
-<meta name="twitter:image" content="http://changxiangyang.github.io/2017/03/16/serialVersionUID/03/16/serialVersionUID/a.png">
+<meta name="twitter:image" content="http://changxiangyang.github.io/2017/03/16/serialVersionUID/">
 
 
 
@@ -397,11 +397,11 @@
       
 
       
-         <img src="/2017/03/16/serialVersionUID/03/16/serialVersionUID/a.png" alt="this is an exaple" title="this is an exaple">
+        <p> <img src="/2017/03/16/serialVersionUID/" alt=""></p>
 <p>2实现java.io.Serializable这个接口是为了序列化,serialVersionUID 用来表明实现序列化类的不同版本间的兼容性。如果你修改了此类, 要修改此值。否则以前用老版本的类序列化的类恢复时会出错。<a id="more"></a></p>
 <h3 id="理解serialVersionUID"><a href="#理解serialVersionUID" class="headerlink" title="理解serialVersionUID"></a>理解serialVersionUID</h3><p>如果你实现了Serializable接口，你肯定遇到这个警告消息</p>
 <p><code>The serializable class xxx does not declare a static final serialVersionUID field of type long</code></p>
-<p>所以…什么是serialVersionUID？</p>
+<p>所以….什么是serialVersionUID？</p>
 <p>serialVersionUID用作Serializable类中的版本控制。如果没有显式声明一个serialVersionUID，JVM将根据您的Serializable类的各个方面自动完成它，如<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Serializable.html" target="_blank" rel="external">Java（TM）对象序列化规范中所述</a>。</p>
 <h3 id="serialVersionUID的例子"><a href="#serialVersionUID的例子" class="headerlink" title="serialVersionUID的例子"></a>serialVersionUID的例子</h3><p>上面的话有点难以理解（至少我没有理解），让我们开始一个例子来了解Serializable类如何使用SerialVersionUID来实现版本控制。</p>
 <h4 id="Address-java"><a href="#Address-java" class="headerlink" title="Address.java"></a>Address.java</h4><p>一个serialVersionUID为1L的可序列化类。</p>
