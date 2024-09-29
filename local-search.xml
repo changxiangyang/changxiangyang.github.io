@@ -5,8 +5,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="/2024/09/3ef58da6271a.html"/>
-    <url>/2024/09/3ef58da6271a.html</url>
+    <link href="/2024/09/61710431f7a3.html"/>
+    <url>/2024/09/61710431f7a3.html</url>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -18,10 +18,37 @@
   
   <entry>
     <title></title>
-    <link href="/2024/09/3b40bf1fb082.html"/>
-    <url>/2024/09/3b40bf1fb082.html</url>
+    <link href="/2024/09/4303f2ce8a10.html"/>
+    <url>/2024/09/4303f2ce8a10.html</url>
     
-    <content type="html"><![CDATA[<h3 id="obsidian-gitaction-hexo">obsidian + gitaction + hexo</h3>]]></content>
+    <content type="html"><![CDATA[<p>池化技术想必大家已经屡见不鲜了，线程池、数据库连接池、HTTP 连接池等等都是对这个思想的应用。池化技术的思想主要是为了减少每次获取资源的消耗，提高对资源的利用率。</p><p>这篇文章我会详细介绍一下线程池的基本概念以及核心原理。</p><h2 id="线程池介绍">线程池介绍</h2><p>顾名思义，线程池就是管理一系列线程的资源池，其提供了一种限制和管理线程资源的方式。每个线程池还维护一些基本统计信息，例如已完成任务的数量。</p><p>这里借用《Java 并发编程的艺术》书中的部分内容来总结一下使用线程池的好处：</p><ul><li><strong>降低资源消耗</strong>。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li><li><strong>提高响应速度</strong>。当任务到达时，任务可以不需要等到线程创建就能立即执行。</li><li><strong>提高线程的可管理性</strong>。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</li></ul><p><strong>线程池一般用于执行多个不相关联的耗时任务，没有多线程的情况下，任务顺序执行，使用了线程池的话可让多个不相关联的任务同时执行。</strong></p><h2 id="Executor-框架介绍">Executor 框架介绍</h2><p><code>Executor</code> 框架是 Java5 之后引进的，在 Java 5 之后，通过 <code>Executor</code> 来启动线程比使用 <code>Thread</code> 的 <code>start</code> 方法更好，除了更易管理，效率更好（用线程池实现，节约开销）外，还有关键的一点：有助于避免 this 逃逸问题。</p><blockquote><p>this 逃逸是指在构造函数返回之前其他线程就持有该对象的引用，调用尚未构造完全的对象的方法可能引发令人疑惑的错误。</p></blockquote><p><code>Executor</code> 框架不仅包括了线程池的管理，还提供了线程工厂、队列以及拒绝策略等，<code>Executor</code> 框架让并发编程变得更加简单。</p><p><code>Executor</code> 框架结构主要由三大部分组成：</p><p><strong>1、任务(<code>Runnable</code> /<code>Callable</code>)</strong></p><p>执行任务需要实现的 <strong><code>Runnable</code> 接口</strong> 或 <strong><code>Callable</code>接口</strong>。<strong><code>Runnable</code> 接口</strong>或 <strong><code>Callable</code> 接口</strong> 实现类都可以被 <strong><code>ThreadPoolExecutor</code></strong> 或 <strong><code>ScheduledThreadPoolExecutor</code></strong> 执行。</p><p><strong>2、任务的执行(<code>Executor</code>)</strong></p><p>如下图所示，包括任务执行机制的核心接口 <strong><code>Executor</code></strong> ，以及继承自 <code>Executor</code> 接口的 <strong><code>ExecutorService</code> 接口。<code>ThreadPoolExecutor</code></strong> 和 <strong><code>ScheduledThreadPoolExecutor</code></strong> 这两个关键类实现了 <strong><code>ExecutorService</code></strong> 接口。<br><img src="https://s2.loli.net/2024/09/29/DEFlMQ95Cj7wWqR.png" alt=""><br>这里提了很多底层的类关系，但是，实际上我们需要更多关注的是 <code>ThreadPoolExecutor</code> 这个类，这个类在我们实际使用线程池的过程中，使用频率还是非常高的。</p><p><strong>注意：</strong> 通过查看 <code>ScheduledThreadPoolExecutor</code> 源代码我们发现 <code>ScheduledThreadPoolExecutor</code> 实际上是继承了 <code>ThreadPoolExecutor</code> 并实现了 <code>ScheduledExecutorService</code> ，而 <code>ScheduledExecutorService</code> 又实现了 <code>ExecutorService</code>，正如我们上面给出的类关系图显示的一样。</p><p><code>ThreadPoolExecutor</code> 类描述:</p><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//AbstractExecutorService实现了ExecutorService接口 </span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadPoolExecutor</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractExecutorService</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure><p><code>ScheduledThreadPoolExecutor</code> 类描述</p><figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//ScheduledExecutorService继承ExecutorService接口</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScheduledThreadPoolExecutor</span>        <span class="token keyword">extends</span> <span class="token class-name">ThreadPoolExecutor</span>        <span class="token keyword">implements</span> <span class="token class-name">ScheduledExecutorService</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>IT</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>线程池</tag>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2024/09/4863498c2ed3.html"/>
+    <url>/2024/09/4863498c2ed3.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="文章背景">文章背景</h3><p>经常遇到看过的内容、知识记不住，为了达到记忆的效果，决定采用<a href="https://learnku.com/articles/35137">费曼学习法</a>强化学习习惯，将学习的课题定期输出以博客的形式输出。之所以不采用现有的博客工具平台，主要是因为我是一个喜欢折腾工具的人，想要很多定制化、个性化的输出形式，所以决定自己搭建一个博客。<br>通过自己的了解，最终选择使用 obsidian 作为写作工具，配合hexo 、gitpage 搭建个人博客网站；主要优点是</p><ol><li>工具都是开源免费的、相关资料补交全</li><li>obsidian 是一个本地工具，具有及其强大的插件市场，可以满足日常几乎所有写作需求，是一个all in one的工具</li><li>hexo 简单方便</li><li>gitpage 可以结合actions 实现自动化CI/CD</li><li>接合插件和脚本，前期需要折腾下，工作流打通后，就可以自动化构建和部署发布博客，只用专注于写作内容。</li></ol><h3 id="博客方案">博客方案</h3><p><img src="https://s2.loli.net/2024/09/24/wUs2Oba53v9DGX7.png" alt=""></p><h2 id="准备工作">准备工作</h2><h3 id="obsidian">obsidian</h3><p>obsidian 是我极力推荐的一个all in one 的笔记工具，配合其强大的插件市场，已经成为我日常最高频的工具软件；相比于其他笔记工具(notion、有道云笔记、印象笔记、onenote等) 有一定的学习门槛(需要折腾)，但上手后，灵活度很高，加上它是本地化的工具类，不受云笔记空间及网络的限制，将来做迁移和同步备份时，很方便。因为我也在不断学习这个工具的使用，以后会专门出一个关于obsidian的内容。</p><h3 id="hexo">hexo</h3><p>Hexo 是一个快速、简洁且高效的博客框架。 Hexo 使用 <a href="http://daringfireball.net/projects/markdown/">Markdown</a>（或其他标记语言）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p><h3 id="git-page">git page</h3><p>需要申请一个github账号， 创建2个仓库</p><ol><li>xxxx-blog 仓库用来存放博客源代码</li><li><a href="http://xxxx.github.io">xxxx.github.io</a> 仓库用来存放静态博客页面</li></ol><h2 id="参考文章">参考文章</h2><blockquote><p><a href="https://sanonz.github.io/2020/deploy-a-hexo-blog-from-github-actions/">利用 Github Actions 自动部署 Hexo 博客</a></p></blockquote>]]></content>
     
     
     <categories>
@@ -32,6 +59,16 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>obsidian</tag>
+      
+      <tag>hexo</tag>
+      
+      <tag>gitpage</tag>
+      
+    </tags>
     
   </entry>
   
