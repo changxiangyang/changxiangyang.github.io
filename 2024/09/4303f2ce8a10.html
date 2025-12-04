@@ -23,8 +23,8 @@
 <meta property="og:site_name" content="chang">
 <meta property="og:description" content="池化技术想必大家已经屡见不鲜了，线程池、数据库连接池、HTTP 连接池等等都是对这个思想的应用。池化技术的思想主要是为了减少每次获取资源的消耗，提高对资源的利用率。 这篇文章我会详细介绍一下线程池的基本概念以及核心原理。 线程池介绍 顾名思义，线程池就是管理一系列线程的资源池，其提供了一种限制和管理线程资源的方式。每个线程池还维护一些基本统计信息，例如已完成任务的数量。 这里借用《Java 并发编">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2024/09/29/DEFlMQ95Cj7wWqR.png">
-<meta property="og:image" content="https://s2.loli.net/2024/09/29/rKvge3nOIbuAdhL.png">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/04/e3606cbc5af79663.png">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/04/776f257208790e61.png">
 <meta property="og:image" content="https://s2.loli.net/2024/09/29/h1jagkGsSqm2dcR.png">
 <meta property="og:image" content="https://s2.loli.net/2024/09/29/VyKZhwt7aPObG8v.png">
 <meta property="og:image" content="https://s2.loli.net/2024/09/29/5MZK79TmfLPkGeb.png">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="线程池">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2024/09/29/DEFlMQ95Cj7wWqR.png">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2025/12/04/e3606cbc5af79663.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -310,8 +310,8 @@
 <p>执行任务需要实现的 <strong><code>Runnable</code> 接口</strong> 或 <strong><code>Callable</code>接口</strong>。<strong><code>Runnable</code> 接口</strong>或 <strong><code>Callable</code> 接口</strong> 实现类都可以被 <strong><code>ThreadPoolExecutor</code></strong> 或 <strong><code>ScheduledThreadPoolExecutor</code></strong> 执行。</p>
 <p><strong>2、任务的执行(<code>Executor</code>)</strong></p>
 <p>如下图所示，包括任务执行机制的核心接口 <strong><code>Executor</code></strong> ，以及继承自 <code>Executor</code> 接口的 <strong><code>ExecutorService</code> 接口。<code>ThreadPoolExecutor</code></strong> 和 <strong><code>ScheduledThreadPoolExecutor</code></strong> 这两个关键类实现了 <strong><code>ExecutorService</code></strong> 接口。<br>
-<img src="https://s2.loli.net/2024/09/29/DEFlMQ95Cj7wWqR.png" srcset="/img/loading.gif" lazyload alt=""><br>
-这里提了很多底层的类关系，但是，实际上我们需要更多关注的是 <code>ThreadPoolExecutor</code> 这个类，这个类在我们实际使用线程池的过程中，使用频率还是非常高的。</p>
+<img src="https://s3.bmp.ovh/imgs/2025/12/04/e3606cbc5af79663.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>这里提了很多底层的类关系，但是，实际上我们需要更多关注的是 <code>ThreadPoolExecutor</code> 这个类，这个类在我们实际使用线程池的过程中，使用频率还是非常高的。</p>
 <p><strong>注意：</strong> 通过查看 <code>ScheduledThreadPoolExecutor</code> 源代码我们发现 <code>ScheduledThreadPoolExecutor</code> 实际上是继承了 <code>ThreadPoolExecutor</code> 并实现了 <code>ScheduledExecutorService</code> ，而 <code>ScheduledExecutorService</code> 又实现了 <code>ExecutorService</code>，正如我们上面给出的类关系图显示的一样。</p>
 <p><code>ThreadPoolExecutor</code> 类描述:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//AbstractExecutorService实现了ExecutorService接口 </span>
@@ -325,7 +325,7 @@
 <p><strong><code>Future</code></strong> 接口以及 <code>Future</code> 接口的实现类 <strong><code>FutureTask</code></strong> 类都可以代表异步计算的结果。</p>
 <p>当我们把 <strong><code>Runnable</code>接口</strong> 或 <strong><code>Callable</code> 接口</strong> 的实现类提交给 <strong><code>ThreadPoolExecutor</code></strong> 或 <strong><code>ScheduledThreadPoolExecutor</code></strong> 执行。（调用 <code>submit()</code> 方法时会返回一个 <strong><code>FutureTask</code></strong> 对象）</p>
 <p><strong><code>Executor</code> 框架的使用示意图</strong>：<br>
-<img src="https://s2.loli.net/2024/09/29/rKvge3nOIbuAdhL.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<img src="https://s3.bmp.ovh/imgs/2025/12/04/776f257208790e61.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
 <li>主线程首先要创建实现 <code>Runnable</code> 或者 <code>Callable</code> 接口的任务对象。</li>
 <li>把创建完成的实现 <code>Runnable</code>/<code>Callable</code>接口的 对象直接交给 <code>ExecutorService</code> 执行: <code>ExecutorService.execute（Runnable command）</code>）或者也可以把 <code>Runnable</code> 对象或<code>Callable</code> 对象提交给 <code>ExecutorService</code> 执行（<code>ExecutorService.submit（Runnable task）</code>或 <code>ExecutorService.submit（Callable &lt;T&gt; task）</code>）。</li>
