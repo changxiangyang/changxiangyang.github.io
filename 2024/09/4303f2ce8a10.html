@@ -26,9 +26,9 @@
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/04/e3606cbc5af79663.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/04/776f257208790e61.png">
 <meta property="og:image" content="https://oss.javaguide.cn/github/javaguide/java/concurrent/relationship-between-thread-pool-parameters.png">
-<meta property="og:image" content="https://oss.javaguide.cn/github/javaguide/java/concurrent/threadpoolexecutor-construtors.png">
-<meta property="og:image" content="https://oss.javaguide.cn/github/javaguide/java/concurrent/executors-new-thread-pool-methods.png">
-<meta property="og:image" content="https://oss.javaguide.cn/github/javaguide/java/concurrent/thread-pool-principle.png">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/05/232269edda30afd8.png">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/05/6673f48de2bc7c3f.png">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/12/05/b7d094d83d08dfba.png">
 <meta property="og:image" content="https://javaguide.cn/assets/FixedThreadPool-C0OTNJpn.png">
 <meta property="og:image" content="https://javaguide.cn/assets/SingleThreadExecutor-CWwRbYDP.png">
 <meta property="og:image" content="https://javaguide.cn/assets/CachedThreadPool-execute-CmSVV1Ww.png">
@@ -399,11 +399,11 @@
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h3 id="线程池创建的两种方式">线程池创建的两种方式</h3>
 <p><strong>方式一：通过<code>ThreadPoolExecutor</code>构造函数来创建（推荐）。</strong><br>
-<img src="https://oss.javaguide.cn/github/javaguide/java/concurrent/threadpoolexecutor-construtors.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<img src="https://s3.bmp.ovh/imgs/2025/12/05/232269edda30afd8.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>方式二：通过 <code>Executor</code> 框架的工具类 <code>Executors</code> 来创建。</strong></p>
 <p><code>Executors</code>工具类提供的创建线程池的方法如下图所示：<br>
-<img src="https://oss.javaguide.cn/github/javaguide/java/concurrent/executors-new-thread-pool-methods.png" srcset="/img/loading.gif" lazyload alt=""><br>
-可以看出，通过<code>Executors</code>工具类可以创建多种类型的线程池，包括:</p>
+<img src="https://s3.bmp.ovh/imgs/2025/12/05/6673f48de2bc7c3f.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>可以看出，通过<code>Executors</code>工具类可以创建多种类型的线程池，包括:</p>
 <ul>
 <li><code>FixedThreadPool</code>：固定线程数量的线程池。该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。</li>
 <li><code>SingleThreadExecutor</code>： 只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。</li>
@@ -612,9 +612,9 @@ Finished all threads  // 任务全部执行完了才会跳出来，因为executo
 <li>如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。</li>
 <li>如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。</li>
 <li>如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，拒绝策略会调用<code>RejectedExecutionHandler.rejectedExecution()</code>方法。<br>
-<img src="https://oss.javaguide.cn/github/javaguide/java/concurrent/thread-pool-principle.png" srcset="/img/loading.gif" lazyload alt=""><br>
-在 <code>execute</code> 方法中，多次调用 <code>addWorker</code> 方法。<code>addWorker</code> 这个方法主要用来创建新的工作线程，如果返回 true 说明创建和启动工作线程成功，否则的话返回的就是 false。</li>
+<img src="https://s3.bmp.ovh/imgs/2025/12/05/b7d094d83d08dfba.png" srcset="/img/loading.gif" lazyload alt=""></li>
 </ol>
+<p>在 <code>execute</code> 方法中，多次调用 <code>addWorker</code> 方法。<code>addWorker</code> 这个方法主要用来创建新的工作线程，如果返回 true 说明创建和启动工作线程成功，否则的话返回的就是 false。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-java" data-language="java"><code class="language-java"> <span class="token comment">// 全局锁，并发操作必备</span>
  <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ReentrantLock</span> mainLock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token comment">// 跟踪线程池的最大大小，只有在持有全局锁mainLock的前提下才能访问此集合</span>
